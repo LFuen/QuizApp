@@ -10,7 +10,7 @@
          {question: 'What country shares the name of a state of North America?', answer: ['Mississippi',
          'Michigan', 'Georgia', 'Vermont'], correctAnswer: 'Georgia'},
          {question: 'Who is the proverbial "King of the Jungle"?', answer: ['Jorge', 'Tiger', 'Lion',
-         'Tarzan'], correctAnswer: 'c. Lion'},
+         'Tarzan'], correctAnswer: 'Lion'},
          {question: 'What does the "19" in COVID-19 stand for?', answer: ['The year', 'Strain store.questionNumber', 
          'Amount of people it killed', 'No one knows, really'], correctAnswer: 'The year'},
          {question: 'How many colors are in the rainbow?', answer: ['12', '7', '5', '36'], 
@@ -20,9 +20,12 @@
         ],
     quizStarted: false,
     questionNumber: 0,
-    score: 0
+    score: 0,
+    wrong: 0
  };
 
+ let wrong = 0;
+ let question = store.questionNumber;
 
 
 //   let q = 0;
@@ -35,37 +38,69 @@
 //  let userScore = {right : 0, wrong : 0};
 
   $('main').append('<button id="start" class="begin">Start Quiz</button>');
- 
+
   $('#start').on('click', function() {
-      $('main').html(getHTML(store));
-      $('#submit').on('click', function() {
-        $('main').html(rightAns(store));
+       $('main').html(getHTML(store));
+       $('#submit').on('click', function() {
+         $('main').html(rightAns(store));
+         $('#next').on('click', function() {
+            question++;
+             $('main').html(getHTML(store));
+            $('#submit').on('click', function() {
+                $('main').html(rightAns(store));
+                $('#next').on('click', function() {
+                    question++;
+                    $('main').html(getHTML(store));
+                    $('#submit').on('click', function() {
+                        $('main').html(rightAns(store));
+                        $('#next').on('click', function() {
+                            question++;
+                            $('main').html(getHTML(store));
+                            $('#submit').on('click', function() {
+                                $('main').html(rightAns(store));
+                                $('#next').on('click', function() {
+                                    question++;
+                                    $('main').html(getHTML(store));
+                                    $('#submit').on('click', function() {
+                                        $('main').html(rightAns(store));
+                                        $('#next').on('click', function() {
+                                            question++;
+                                            $('main').html(getHTML(store));
+                                            $('#submit').on('click', function() {
+                                                $('main').html(rightAns(store));
+                                                $('#next').on('click', function() {
+                                                    question++;
+                                                    $('main').html(getHTML(store));
+                                                });
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+            });
+        });
     });
   });
+});
 
  function getHTML(store) {
     
-//      let currentQuestion = (store.questions[q].question);
-//  let currentRadio1 = (store.questions[store.questionNumber].answer[rb1]);
-//  let currentRadio2 = (store.questions[store.questionNumber].answer[rb2]);
-//  let currentRadio3 = (store.questions[store.questionNumber].answer[rb3]);
-//  let currentRadio4 = (store.questions[store.questionNumber].answer[rb4]);
-//  let currentAnswer = (store.questions[store.questionNumber].correctAnswer);
-    
     return `<div class="questions">
-    <h2 id="question">${store.questions[store.questionNumber].question}</h2>
+    <h2 id="question">${store.questions[question].question}</h2>
         <form>
-        <input type="radio" id="ans1" name="quest" value=${store.questions[store.questionNumber].answer[0]}>
-        <label for="male">${store.questions[store.questionNumber].answer[0]}</label><br>
+        <input type="radio" id="ans1" name="quest" value=${store.questions[question].answer[0]}>
+        <label for="male">${store.questions[question].answer[0]}</label><br>
 
-        <input type="radio" id="ans2" name="quest" value=${store.questions[store.questionNumber].answer[1]}>
-        <label for="female">${store.questions[store.questionNumber].answer[1]}</label><br>
+        <input type="radio" id="ans2" name="quest" value=${store.questions[question].answer[1]}>
+        <label for="female">${store.questions[question].answer[1]}</label><br>
 
-        <input type="radio" id="ans3" name="quest" value=${store.questions[store.questionNumber].answer[2]}>
-        <label for="other">${store.questions[store.questionNumber].answer[2]}</label><br>
+        <input type="radio" id="ans3" name="quest" value=${store.questions[question].answer[2]}>
+        <label for="other">${store.questions[question].answer[2]}</label><br>
 
-        <input type="radio" id="ans4" name="quest" value=${store.questions[store.questionNumber].answer[3]}>
-        <label for="other">${store.questions[store.questionNumber].answer[3]}</label>
+        <input type="radio" id="ans4" name="quest" value=${store.questions[question].answer[3]}>
+        <label for="other">${store.questions[question].answer[3]}</label>
         </form> 
         </div>
 
@@ -76,31 +111,37 @@
 
 
 function rightAns(store) {
-    let correct = store.questions[store.questionNumber].correctAnswer;
+    let correct = store.questions[question].correctAnswer;
+    let wrong = 0;
      console.log(correct, $('input[name="quest"]:checked').val());
-    if ($('input[name="quest"]:checked').val() === store.questions[store.questionNumber].correctAnswer) {
+    if ($('input[name="quest"]:checked').val() === store.questions[question].correctAnswer) {
     store.score++;
     return `<div class="questions">
     <h1 id="question">CORRECT!</h2>
 
-    <button id="submit">Next Question</button>
+    <button id="next">Next Question</button>
       </div>`;
       
     } else {
         return `<div class="questions">
     <h1 id="question">OH NO...</h2>
 
-    <h3>The correct answer is <br> ${store.questions[store.questionNumber].correctAnswer}<h3>
+    <h3>The correct answer is <br> ${store.questions[question].correctAnswer}<h3>
 
-    <button id="submit">Next Question</button>
+    <button id="next">Next Question</button>
       </div>`;
+      store.wrong++;
     }
 };
 
 
-//  $('#submit').on('click', function() {
-//     $('#submit').html(rightAns(store));
-// });
+function results() {
+    return `<div class="questions">
+    <h1 id="question">And the Results Are...</h2>
+
+    <button id="next">Next Question</button>
+      </div>`;
+}
 
 
 
