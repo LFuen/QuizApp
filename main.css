@@ -64,3 +64,7 @@ h1 {
     font-size: 28px;
     display: flex;
 }
+
+.fontSize {
+    font-size: 15px;
+}

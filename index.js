@@ -39,13 +39,13 @@ $('#start').on('click', function () {
     var templateHTML = `<div class="questions">
     <h2 id="question">${currentQuestion.question}</h2>
     <form>
-    <input type="radio" id="ans1" name="quest" value=${currentQuestion.answer[0]}>
+    <input type="radio" id="ans1" name="quest" value="${currentQuestion.answer[0]}">
     <label for="male">${currentQuestion.answer[0]}</label><br>
-    <input type="radio" id="ans2" name="quest" value=${currentQuestion.answer[1]}>
+    <input type="radio" id="ans2" name="quest" value="${currentQuestion.answer[1]}">
     <label for="female">${currentQuestion.answer[1]}</label><br>
-    <input type="radio" id="ans3" name="quest" value=${currentQuestion.answer[2]}>
+    <input type="radio" id="ans3" name="quest" value="${currentQuestion.answer[2]}">
     <label for="other">${currentQuestion.answer[2]}</label><br>
-    <input type="radio" id="ans4" name="quest" value=${currentQuestion.answer[3]}>
+    <input type="radio" id="ans4" name="quest" value="${currentQuestion.answer[3]}">
     <label for="other">${currentQuestion.answer[3]}</label>
     </form>  
     </div>
@@ -98,7 +98,7 @@ function results() {
     return `<div class="questions">
     <h1 id="question">And the Results Are...</h2>
 
-    <p class="fontSize"> You scored <br> ${store.score} / 4 <br>
+    <p class="fontSize"> You scored <br> ${store.score} / 4 </p>
       </div>`;
 };
 
