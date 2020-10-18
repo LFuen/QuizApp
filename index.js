@@ -35,8 +35,11 @@ $('#start').on('click', function () {
 
 
  function loadQuestion(store) {
-  if(store.questionNumber === store.length) {
-     return results();
+  console.log("store" , store.questionNumber);
+  console.log("length", store.questions.length);
+  if(store.questionNumber === store.questions.length) {
+    console.log("string");
+    return results();
   }
 
     var currentQuestion = store.questions[store.questionNumber];
@@ -100,12 +103,13 @@ function loadAnswer(store) {
 // new function for when the last question is asked, show the results of the quiz
 
 function results() {
+  let templateHTML = `<div class="questions">
+  <h1 id="question">And the Results Are...</h2>
 
-    return `<div class="questions">
-    <h1 id="question">And the Results Are...</h2>
+  <p class="fontSize"> You scored <br> ${store.score} / 4 </p>
+    </div>`;
+  $('main').html(templateHTML);
 
-    <p class="fontSize"> You scored <br> ${store.score} / 4 </p>
-      </div>`;
 };
 
 
