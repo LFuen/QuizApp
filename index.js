@@ -9,14 +9,14 @@
      questions: [
          {question: 'What country shares the name of a state of North America?', answer: ['Mississippi',
          'Michigan', 'Georgia', 'Vermont'], correctAnswer: 'Georgia'},
-         {question: 'Who is the proverbial "King of the Jungle"?', answer: ['Jorge', 'Tiger', 'Lion',
-         'Tarzan'], correctAnswer: 'Lion'},
-         {question: 'What does the "19" in COVID-19 stand for?', answer: ['The year', 'Strain', 
+         {question: 'War, what is is good for?', answer: ['Destruction', 'Sweet military uniforms', 'Absolutely nothing',
+         'Spending heaps of money'], correctAnswer: 'Absolutely nothing'},
+         {question: 'What does the "19" in COVID-19 stand for?', answer: ['The year', 'The strain', 
          'Amount of people it killed', 'No one knows, really'], correctAnswer: 'The year'},
          {question: 'How many colors are in the rainbow?', answer: ['12', '7', '5', '36'], 
          correctAnswer: '7'},
-         {question: 'When did the Miami Heat last win an NBA Championship?', answer: ['1932', '2001',
-          '2012', '2013'], correctAnswer: '2013'} 
+         {question: 'What is the meaning of life?', answer: ['Yes', 'Eating cheese',
+          `Being able to solve a Rubik's cube in under 3 minutes`, '42'], correctAnswer: '42'} 
         ],
     quizStarted: false,
     questionNumber: 0,
