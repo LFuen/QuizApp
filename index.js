@@ -1,7 +1,7 @@
 /**
  * Example store structure
  * 
- * reference: https://stackoverflow.com/questions/23378676/check-if-selected-radio-button-equals-the-answer-stored-in-an-array
+ * 
  */
 
  const store = {
@@ -35,6 +35,10 @@ $('#start').on('click', function () {
 
 
  function loadQuestion(store) {
+  if(store.questionNumber === store.length) {
+     return results();
+  }
+
     var currentQuestion = store.questions[store.questionNumber];
     var templateHTML = `<div class="questions">
     <h2 id="question">${currentQuestion.question}</h2>
@@ -57,6 +61,7 @@ $('#start').on('click', function () {
     $('main').html(templateHTML);
     $('#submit').on('click', () => {
         loadAnswer(store);
+      
     });
 };
 
@@ -95,6 +100,7 @@ function loadAnswer(store) {
 // new function for when the last question is asked, show the results of the quiz
 
 function results() {
+
     return `<div class="questions">
     <h1 id="question">And the Results Are...</h2>
 
