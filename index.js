@@ -43,9 +43,9 @@ $('#start').on('click', function () {
   }
 
     var currentQuestion = store.questions[store.questionNumber];
-    var templateHTML = `<div class="questions">
+    var templateHTML = `<div class="questions boxed">
     <h2 id="question">${currentQuestion.question}</h2>
-    <form>
+    <form class="boxed">
     <input type="radio" id="ans1" name="quest" value="${currentQuestion.answer[0]}">
     <label for="male">${currentQuestion.answer[0]}</label><br>
     <input type="radio" id="ans2" name="quest" value="${currentQuestion.answer[1]}">
@@ -80,16 +80,18 @@ function loadAnswer(store) {
     console.log(guess, correctAnswer);
     if (guess === correctAnswer) {
         store.score++;
-        templateHTML = `<div class="questions">
+        templateHTML = `<div class="questions boxed">
    <h1 id="question">CORRECT!</h2>
    <button id="next">Next Question</button>
+   <h5>So far: ${store.score} / 5</h5>
      </div>`;
     } else {
         store.wrong++;
-        templateHTML = `<div class="questions">
+        templateHTML = `<div class="questions boxed">
    <h1 id="question">OH NO...</h2>
    <h3>The correct answer is <br> ${correctAnswer}<h3>
    <button id="next">Next Question</button>
+   <h5>So far: ${store.score} / 5</h5>
      </div>`;
     }
     $('main').html(templateHTML);
@@ -106,7 +108,8 @@ function results() {
   let templateHTML = `<div class="questions">
   <h1 id="question">And the Results Are...</h2>
 
-  <p class="fontSize"> You scored <br> ${store.score} / 4 </p>
+  <h3> Dude, you scored <br> ${store.score} / 5! </h3p>
+  <button id="again"> Again? </button>
     </div>`;
   $('main').html(templateHTML);
 
