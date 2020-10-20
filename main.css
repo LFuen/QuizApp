@@ -15,17 +15,14 @@ body {
     background-repeat: no-repeat;
     background-color: black;
     background-size: contain;
+    overflow: hidden;
 }
 
 
 h1 {
     text-align: center;
-    color: rgb(0, 95, 40);
+    color: rgb(0, 255, 13);
     font-family: 'Mansalva', cursive;
-}
-
-.over{
-    overflow: hidden;
 }
 
 .questions {
@@ -46,7 +43,7 @@ h1 {
 }
 
 .begin {
-    color:rgb(0, 95, 40);
+    color:rgb(0, 255, 13);
     border: 3px solid whitesmoke;
     background-color: black;
     border-radius: 3px;
@@ -78,6 +75,19 @@ h1 {
 }
 
 #next {
+    color: rgb(0, 255, 13);
+    border: 3px solid whitesmoke;
+    background-color: black;
+    border-radius: 3px;
+    padding: 15px 30px;
+    margin-right: auto;
+    margin-left: auto;
+    text-decoration: none;
+    font-size: 28px;
+    display: flex;
+}
+
+#again {
     color: rgb(0, 255, 13);
     border: 3px solid whitesmoke;
     background-color: black;

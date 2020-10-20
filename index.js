@@ -33,15 +33,14 @@
  let question = store.questionNumber;
 
 
-
-
-$('main').append('<button id="start" class="begin">Start Quiz</button>');
-$('#start').on('click', function () {
-    loadQuestion(store);
-});
-
-
-
+function render(){
+  if(store.quizStarted === false) {
+    $('main').html('<button id="start" class="begin">Start Quiz</button>');
+    $('#start').on('click', function () {
+      loadQuestion(store);
+  });
+  }
+}
 
  function loadQuestion(store) {
 
@@ -53,6 +52,7 @@ $('#start').on('click', function () {
     
     let templateHTML =
      `<div class="questions boxed">
+     <h3> Question: ${store.questionNumber + 1} / ${store.questions.length} </h3>
     <h2 id="question">${currentQuestion.question}</h2>
     <form class="boxed">
     <input type="radio" id="ans1" name="quest" value="${currentQuestion.answer[0]}">
@@ -66,7 +66,7 @@ $('#start').on('click', function () {
     </form>  
     </div>
 
-    <h3> Question: ${currentQuestion} / ${store.length} </h3>
+    
 
     <div>
         <button id="submit">Submit Answer</button>
@@ -111,7 +111,7 @@ function loadAnswer(store) {
               <h1 id="question">OH NO...</h2>
               <h3>The correct answer is <br> ${correctAnswer}<h3>
               <button id="next">Next Question</button>
-              <h5>So far: ${store.score} / 5</h5>
+              <h5>So far: ${store.score} / ${store.questions.length}</h5>
           </div>`;
     }
 
@@ -129,9 +129,11 @@ function loadAnswer(store) {
 function results() {
   let templateHTML = 
   `<div class="questions boxed">
+  <h3> Psyche! No more questions! </h3> 
+
   <h1 id="question">And the Results Are...</h2>
 
-  <h3> Psyche! No more questions! <br> Dude, you scored <br> ${store.score} / 5! </h3>
+  <h3> Dude, you scored <br> ${store.score} / 5! </h3>
   <button id="again"> Again? </button>
     </div>`;
     
@@ -161,7 +163,7 @@ $(function() {
 
 
 
-
+$(render);
 
 
 
