@@ -65,7 +65,7 @@ h1 {
 }
 
 #submit {
-    color: red;
+    color: rgb(0, 255, 13);
     border: 3px solid whitesmoke;
     background-color: black;
     border-radius: 3px;
