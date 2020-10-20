@@ -10,15 +10,15 @@
  const store = {
      // 5 or more questions required
      questions: [
-         {question: 'What country shares the name of a state of North America?', answer: ['Mississippi',
+         {id: cuid(), question: 'What country shares the name of a state of North America?', answer: ['Mississippi',
          'Michigan', 'Georgia', 'Vermont'], correctAnswer: 'Georgia'},
-         {question: 'War, what is is good for?', answer: ['Destruction', 'Sweet military uniforms', 'Absolutely nothing',
+         {id: cuid(), question: 'War, what is is good for?', answer: ['Destruction', 'Sweet military uniforms', 'Absolutely nothing',
          'Spending heaps of money'], correctAnswer: 'Absolutely nothing'},
-         {question: 'What does the "19" in COVID-19 stand for?', answer: ['The year', 'The strain', 
+         {id: cuid(), question: 'What does the "19" in COVID-19 stand for?', answer: ['The year', 'The strain', 
          'Amount of people it killed', 'No one knows, really'], correctAnswer: 'The year'},
-         {question: 'How many colors are in the rainbow?', answer: ['12', '7', '5', '36'], 
+         {id: cuid(), question: 'How many colors are in the rainbow?', answer: ['12', '7', '5', '36'], 
          correctAnswer: '7'},
-         {question: 'What is the meaning of life?', answer: ['Yes', 'Eating cheese',
+         {id: cuid(), question: 'What is the meaning of life?', answer: ['Yes', 'Eating cheese',
           `Being able to solve a Rubik's cube in under 3 minutes`, '42'], correctAnswer: '42'} 
         ],
     quizStarted: false,
@@ -49,9 +49,9 @@ $('#start').on('click', function () {
     return results();
   }
 
-    var currentQuestion = store.questions[store.questionNumber];
+    let currentQuestion = store.questions[store.questionNumber];
     
-    var templateHTML =
+    let templateHTML =
      `<div class="questions boxed">
     <h2 id="question">${currentQuestion.question}</h2>
     <form class="boxed">
@@ -65,6 +65,8 @@ $('#start').on('click', function () {
     <label for="other">${currentQuestion.answer[3]}</label>
     </form>  
     </div>
+
+    <h3> Question: ${currentQuestion} / ${store.length} </h3>
 
     <div>
         <button id="submit">Submit Answer</button>
