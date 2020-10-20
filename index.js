@@ -84,6 +84,10 @@ $('#start').on('click', function () {
 // // use variable 'createQuestion' to load each question 'store.questions[store.questionNumber]'
 
 
+
+
+
+
 function loadAnswer(store) {
     let correctAnswer = store.questions[store.questionNumber].correctAnswer;
     let guess = $('input[type="radio"]:checked').val();
@@ -128,10 +132,17 @@ function results() {
   <h3> Psyche! No more questions! <br> Dude, you scored <br> ${store.score} / 5! </h3>
   <button id="again"> Again? </button>
     </div>`;
+    
   $('main').html(templateHTML);
   $('#again').on('click', function() {
+    store.quizStarted = false;
+    store.questionNumber = 0;
+    store.score = 0;
     loadQuestion(store);
   });
+
+
+  
 };
 
 
