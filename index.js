@@ -125,10 +125,13 @@ function results() {
   `<div class="questions boxed">
   <h1 id="question">And the Results Are...</h2>
 
-  <h3> Dude, you scored <br> ${store.score} / 5! </h3p>
+  <h3> Psyche! No more questions! <br> Dude, you scored <br> ${store.score} / 5! </h3>
   <button id="again"> Again? </button>
     </div>`;
   $('main').html(templateHTML);
+  $('#again').on('click', function() {
+    loadQuestion(store);
+  });
 };
 
 
