@@ -93,7 +93,7 @@ function loadAnswer(store) {
         store.score++;
         templateHTML =
          `<div class="questions boxed">
-              <h1 id="question">CORRECT!</h2>
+              <h1 id="question" class="smaller">CORRECT!</h2>
               <button id="next">Next Question</button>
               <h5>So far: ${store.score} / 5</h5>
           </div>`;
