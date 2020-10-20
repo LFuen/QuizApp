@@ -4,6 +4,9 @@
  * 
  */
 
+
+
+
  const store = {
      // 5 or more questions required
      questions: [
@@ -116,6 +119,17 @@ function results() {
 };
 
 
+$(function() {
+  $('h1').hover(function(e) { 
+       
+  $(this).addClass('animate__animated animate__shakeX');
+  }, 
+  function(e) {    
+    $(this).removeClass('animate__animated animate__shakeX');
+    });
+
+
+});
 
 
 

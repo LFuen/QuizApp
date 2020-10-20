@@ -24,6 +24,10 @@ h1 {
     font-family: 'Mansalva', cursive;
 }
 
+.over{
+    overflow: hidden;
+}
+
 .questions {
     color: rgb(0, 95, 40);
     border: 3px solid whitesmoke;
