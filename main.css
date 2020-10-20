@@ -2,14 +2,14 @@
 
 /**
 *
-* If you are unclear on how to utilize mobile-first, responsive technique to write CSS, her's an ex.:
+* If you are unclear on how to utilize mobile-first, responsive technique to write CSS, here's an ex.:
 *
 * https://github.com/andreacardybailey/responsive_example/blob/master/styles/responsive-base.css
 *
 */
 
 body {
-    background-image: url("../images/question.jpg");
+    background-image: url("../images/question.jpeg");
     background-position: left;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -29,13 +29,14 @@ h1 {
 }
 
 .questions {
-    color: rgb(0, 95, 40);
+    color: whitesmoke;
     border: 3px solid whitesmoke;
     border-radius: 3px;
     padding: 15px 30px 15px 30px;
-    margin-right: 100px;
-    margin-left: 100px;
+    margin-right: auto;
+    margin-left: auto;
     margin-bottom: 25px;
+    width: 50%;
     text-decoration: none;
     font-size: 28px;
     text-align: center;
@@ -58,8 +59,9 @@ h1 {
 }
 
 .boxed {
-    border-radius: 15px;
+    border-radius: 30px;
     margin-bottom: 30px;
+    background-image: radial-gradient(whitesmoke black);
 }
 
 #submit {
@@ -90,4 +92,15 @@ h1 {
 
 .fontSize {
     font-size: 15px;
+}
+
+
+@media all and(max-width: 600px) {
+    h1 {
+        font-size: 18px;
+    }
+
+    form {
+        width: 75%;
+    }
 }

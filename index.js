@@ -27,8 +27,12 @@
     wrong: 0
  };
 
+
+
  let wrong = 0;
  let question = store.questionNumber;
+
+
 
 
 $('main').append('<button id="start" class="begin">Start Quiz</button>');
@@ -37,16 +41,18 @@ $('#start').on('click', function () {
 });
 
 
+
+
  function loadQuestion(store) {
-  console.log("store" , store.questionNumber);
-  console.log("length", store.questions.length);
+
   if(store.questionNumber === store.questions.length) {
-    console.log("string");
     return results();
   }
 
     var currentQuestion = store.questions[store.questionNumber];
-    var templateHTML = `<div class="questions boxed">
+    
+    var templateHTML =
+     `<div class="questions boxed">
     <h2 id="question">${currentQuestion.question}</h2>
     <form class="boxed">
     <input type="radio" id="ans1" name="quest" value="${currentQuestion.answer[0]}">
@@ -60,9 +66,11 @@ $('#start').on('click', function () {
     </form>  
     </div>
 
-      <div>
+    <div>
         <button id="submit">Submit Answer</button>
-      </div>`;
+    </div>`;
+
+
 
     $('main').html(templateHTML);
     $('#submit').on('click', () => {
@@ -80,23 +88,28 @@ function loadAnswer(store) {
     let correctAnswer = store.questions[store.questionNumber].correctAnswer;
     let guess = $('input[type="radio"]:checked').val();
     let templateHTML = '';
-    console.log(guess, correctAnswer);
+
     if (guess === correctAnswer) {
         store.score++;
-        templateHTML = `<div class="questions boxed">
-   <h1 id="question">CORRECT!</h2>
-   <button id="next">Next Question</button>
-   <h5>So far: ${store.score} / 5</h5>
-     </div>`;
+        templateHTML =
+         `<div class="questions boxed">
+              <h1 id="question">CORRECT!</h2>
+              <button id="next">Next Question</button>
+              <h5>So far: ${store.score} / 5</h5>
+          </div>`;
+
     } else {
         store.wrong++;
-        templateHTML = `<div class="questions boxed">
-   <h1 id="question">OH NO...</h2>
-   <h3>The correct answer is <br> ${correctAnswer}<h3>
-   <button id="next">Next Question</button>
-   <h5>So far: ${store.score} / 5</h5>
-     </div>`;
+        templateHTML = 
+          `<div class="questions boxed">
+              <h1 id="question">OH NO...</h2>
+              <h3>The correct answer is <br> ${correctAnswer}<h3>
+              <button id="next">Next Question</button>
+              <h5>So far: ${store.score} / 5</h5>
+          </div>`;
     }
+
+
     $('main').html(templateHTML);
     $('#next').on('click', function () {
         store.questionNumber++;
@@ -108,27 +121,26 @@ function loadAnswer(store) {
 // new function for when the last question is asked, show the results of the quiz
 
 function results() {
-  let templateHTML = `<div class="questions">
+  let templateHTML = 
+  `<div class="questions boxed">
   <h1 id="question">And the Results Are...</h2>
 
   <h3> Dude, you scored <br> ${store.score} / 5! </h3p>
   <button id="again"> Again? </button>
     </div>`;
   $('main').html(templateHTML);
-
 };
 
 
+// adding random animations to play around with jQ libraries
+
 $(function() {
   $('h1').hover(function(e) { 
-       
-  $(this).addClass('animate__animated animate__shakeX');
+    $(this).addClass('animate__animated animate__shakeX');
   }, 
   function(e) {    
     $(this).removeClass('animate__animated animate__shakeX');
     });
-
-
 });
 
 
