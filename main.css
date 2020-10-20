@@ -97,7 +97,7 @@ h1 {
 
 @media all and(max-width: 600px) {
     h1 {
-        font-size: 18px;
+        font-size: 13px;
     }
 
     form {
