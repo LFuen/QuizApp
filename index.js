@@ -13,28 +13,28 @@
          {id: cuid(), 
           question: 'What country shares the name of a state of North America?', 
           answer: ['Mississippi', 'Michigan', 'Georgia', 'Vermont'], 
-          correctAnswer: 'Georgia'},
+          correctAnswer: 'Georgia', background: 'images/1world.jpg'},
 
          {id: cuid(), 
           question: 'War, what is is good for?', 
           answer: ['Destruction', 'Sweet military uniforms', 'Absolutely nothing',
          'Spending heaps of money'], 
-         correctAnswer: 'Absolutely nothing'},
+         correctAnswer: 'Absolutely nothing', background: 'images/2war.jpg'},
 
          {id: cuid(), 
           question: 'What does the "19" in COVID-19 stand for?', 
           answer: ['The year', 'The strain', 'Amount of people it killed', 'No one knows, really'], 
-         correctAnswer: 'The year'},
+         correctAnswer: 'The year', background: 'images/3covid.jpg'},
 
          {id: cuid(), 
           question: 'How many colors are in the rainbow?', 
           answer: ['12', '7', '5', '36'], 
-         correctAnswer: '7'},
+         correctAnswer: '7', background: 'images/4rainbow.jpg'},
 
          {id: cuid(), 
           question: 'What is the meaning of life?', 
           answer: ['Yes', 'Eating cheese', `Being able to solve a Rubik's cube in under 3 minutes`, '42'], 
-          correctAnswer: '42'} 
+          correctAnswer: '42', background: 'images/5life.jpg'} 
         ],
 
     quizStarted: false,
@@ -42,27 +42,6 @@
     score: 0,
     wrong: 0
  };
-
-
-
-// function pictures(){
-// $('main').html(
-// ` <img src="images/1world.jpg" id="world">
-// <img src="images/2war.jpg" id="war">
-// <img src="images/3covid.jpg" id="covid">
-// <img src="images/4rainbow.jpg" id="rainbow">
-// <img src="images/5life.jpg" id="life">`
-//   )};
-
-// let world = document.getElementById("world");
-// let war = document.getElementById("war");
-// let covid = document.getElementById("covid");
-// let rainbow = document.getElementById("rainbow");
-// let life = document.getElementById("life");
-
-// let images = [world, war, covid, rainbow, life];
-
-
 
 
 
@@ -85,12 +64,12 @@ function render(){
   if(store.questionNumber === store.questions.length) {
     return results();
   }
-  $('#picture').css('background-image', 'url(images/1world.jpg)');  
 
     let currentQuestion = store.questions[store.questionNumber];
+    let currentPic = currentQuestion.background;
     
     let templateHTML =
-     `<div class="questions boxed" id="picture">
+     `<div class="questions boxed" style="background-image: url(${currentPic})">
      <h3> Question: ${store.questionNumber + 1} / ${store.questions.length} </h3>
     <h2 id="question">${currentQuestion.question}</h2>
     <form class="boxed">
