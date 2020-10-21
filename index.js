@@ -40,7 +40,9 @@
     quizStarted: false,
     questionNumber: 0,
     score: 0,
-    wrong: 0
+    wrong: 0, 
+    correct: 'images/correct.jpg',
+    incorrect: 'images/incorrect.jpg'
  };
 
 
@@ -69,7 +71,7 @@ function render(){
     let currentPic = currentQuestion.background;
     
     let templateHTML =
-     `<div class="questions boxed" style="background-image: url(${currentPic})">
+     `<div class="questions boxed" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${currentPic})">
      <h3> Question: ${store.questionNumber + 1} / ${store.questions.length} </h3>
     <h2 id="question">${currentQuestion.question}</h2>
     <form class="boxed">
@@ -116,7 +118,7 @@ function loadAnswer(store) {
     if (guess === correctAnswer) {
         store.score++;
         templateHTML =
-         `<div class="questions boxed">
+         `<div class="questions boxed" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${store.correct})">
               <h1 id="question" class="smaller">CORRECT!</h2>
               <button id="next">Next Question</button>
               <h5>So far: ${store.score} / 5</h5>
@@ -125,7 +127,7 @@ function loadAnswer(store) {
     } else {
         store.wrong++;
         templateHTML = 
-          `<div class="questions boxed">
+          `<div class="questions boxed" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${store.incorrect})">
               <h1 id="question">OH NO...</h2>
               <h3>The correct answer is <br> ${correctAnswer}<h3>
               <button id="next">Next Question</button>
