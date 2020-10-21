@@ -75,13 +75,13 @@ function render(){
      <h3> Question: ${store.questionNumber + 1} / ${store.questions.length} </h3>
     <h2 id="question">${currentQuestion.question}</h2>
     <form class="boxed">
-    <input type="radio" id="ans1" name="quest" value="${currentQuestion.answer[0]}">
+    <input type="radio" id="ans1" name="quest" value="${currentQuestion.answer[0]}" required>
     <label for="male">${currentQuestion.answer[0]}</label><br>
-    <input type="radio" id="ans2" name="quest" value="${currentQuestion.answer[1]}">
+    <input type="radio" id="ans2" name="quest" value="${currentQuestion.answer[1]}" required>
     <label for="female">${currentQuestion.answer[1]}</label><br>
-    <input type="radio" id="ans3" name="quest" value="${currentQuestion.answer[2]}">
+    <input type="radio" id="ans3" name="quest" value="${currentQuestion.answer[2]}" required>
     <label for="other">${currentQuestion.answer[2]}</label><br>
-    <input type="radio" id="ans4" name="quest" value="${currentQuestion.answer[3]}">
+    <input type="radio" id="ans4" name="quest" value="${currentQuestion.answer[3]}" required>
     <label for="other">${currentQuestion.answer[3]}</label>
     </form>  
     </div>
@@ -115,7 +115,11 @@ function loadAnswer(store) {
     let guess = $('input[type="radio"]:checked').val();
     let templateHTML = '';
 
-    if (guess === correctAnswer) {
+    if(guess === undefined) {
+      alert('Dude, at least guess! Since you tried to best me, now you have to start all over...');
+      location.reload();
+
+    } else if(guess === correctAnswer && !undefined) {
         store.score++;
         templateHTML =
          `<div class="questions boxed" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${store.correct})">
