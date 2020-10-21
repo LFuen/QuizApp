@@ -118,6 +118,10 @@ h1 {
         font-size: 13px;
     }
 
+    div.questions{
+        background-image: unset;
+    }
+
     .smaller {
         font-size: 50%;
     }
