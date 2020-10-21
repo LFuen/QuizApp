@@ -61,6 +61,8 @@ function render(){
   }
 }
 
+
+
  function loadQuestion(store) {
 
   if(store.questionNumber === store.questions.length) {
@@ -70,18 +72,18 @@ function render(){
     let currentQuestion = store.questions[store.questionNumber];
     let currentPic = currentQuestion.background;
     
-    let templateHTML =
-     `<div class="questions boxed" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${currentPic})">
-     <h3> Question: ${store.questionNumber + 1} / ${store.questions.length} </h3>
+    let templateHTML =`
+    <div class="questions boxed" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${currentPic})">
+    <h3> Question: ${store.questionNumber + 1} / ${store.questions.length} </h3>
     <h2 id="question">${currentQuestion.question}</h2>
     <form class="boxed">
-    <input type="radio" id="ans1" name="quest" value="${currentQuestion.answer[0]}" required>
+    <input type="radio" name="quest" value="${currentQuestion.answer[0]}" required/>
     <label for="male">${currentQuestion.answer[0]}</label><br>
-    <input type="radio" id="ans2" name="quest" value="${currentQuestion.answer[1]}" required>
+    <input type="radio" name="quest" value="${currentQuestion.answer[1]}">
     <label for="female">${currentQuestion.answer[1]}</label><br>
-    <input type="radio" id="ans3" name="quest" value="${currentQuestion.answer[2]}" required>
+    <input type="radio" name="quest" value="${currentQuestion.answer[2]}">
     <label for="other">${currentQuestion.answer[2]}</label><br>
-    <input type="radio" id="ans4" name="quest" value="${currentQuestion.answer[3]}" required>
+    <input type="radio" name="quest" value="${currentQuestion.answer[3]}">
     <label for="other">${currentQuestion.answer[3]}</label>
     </form>  
     </div>
@@ -168,9 +170,6 @@ function results() {
     store.score = 0;
     loadQuestion(store);
   });
-
-
-  
 };
 
 
