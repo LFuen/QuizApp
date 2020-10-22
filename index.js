@@ -124,7 +124,7 @@ function loadAnswer(store) {
     } else if(guess === correctAnswer && !undefined) {
         store.score++;
         templateHTML =
-         `<div class="questions boxed" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${store.correct})">
+         `<div class="right">
               <h1 id="question" class="smaller">CORRECT!</h2>
               <button id="next">Next Question</button>
               <h5>So far: ${store.score} / 5</h5>
@@ -133,7 +133,7 @@ function loadAnswer(store) {
     } else {
         store.wrong++;
         templateHTML = 
-          `<div class="questions boxed" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${store.incorrect})">
+          `<div class="wrong>
               <h1 id="question">OH NO...</h2>
               <h3>The correct answer is <br> ${correctAnswer}<h3>
               <button id="next">Next Question</button>
