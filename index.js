@@ -133,7 +133,7 @@ function loadAnswer(store) {
     } else {
         store.wrong++;
         templateHTML = 
-          `<div class="wrong>
+          `<div class="wrong">
               <h1 id="question">OH NO...</h2>
               <h3>The correct answer is <br> ${correctAnswer}<h3>
               <button id="next">Next Question</button>
