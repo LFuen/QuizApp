@@ -19,7 +19,7 @@ body {
 }
 
 div.questions{
-    background-size: contain;
+    background-size: fit-content;
     box-shadow: 25px 25px 50px 0 rgb(0, 0, 0) inset, -25px -25px 50px 0 rgb(0, 0, 0) inset;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -29,7 +29,7 @@ h1 {
     text-align: center;
     color: rgb(0, 255, 13);
     font-family: 'Mansalva', cursive;
-    text-shadow: 3px 5px 5px rgb(139, 139, 139);
+    text-shadow: 3px 5px 5px rgb(121, 121, 121);
 }
 
 .questions {
@@ -94,14 +94,25 @@ h1 {
     margin-right: auto;
     margin-left: auto;
     text-decoration: none;
+    text-shadow: 3px 5px 5px rgb(97, 97, 97);
     font-size: 28px;
     display: flex;
+    animation: pulse 2s infinite;
+}
+
+.begin:hover {
+    color:rgb(0, 0, 0);
+    font-weight: bold;
+    border: 3px solid rgb(0, 0, 0);
+    background-color: rgb(0, 255, 13);
+    text-shadow: 3px 5px 5px rgb(0, 0, 0);
 }
 
 .boxed {
     border-radius: 30px;
     margin-bottom: 30px;
     background-image: radial-gradient(whitesmoke black);
+    backdrop-filter: blur(10px);
 }
 
 #submit {
@@ -118,6 +129,11 @@ h1 {
     display: flex;
 }
 
+#submit:hover {
+    color: rgb(255, 255, 255);
+    border: 3px solid rgb(0, 68, 255);
+}
+
 #next {
     color: rgb(0, 255, 13);
     border: 3px solid whitesmoke;
@@ -131,8 +147,15 @@ h1 {
     display: flex;
 }
 
+#next:hover {
+    color: rgb(255, 255, 255);
+    border: 3px solid rgb(0, 255, 13);
+    background-color: black;
+}
+
 #again {
     color: rgb(0, 255, 13);
+    text-shadow: 3px 5px 5px rgb(139, 139, 139);
     border: 3px solid whitesmoke;
     background-color: black;
     border-radius: 30px;
@@ -144,14 +167,23 @@ h1 {
     display: flex;
 }
 
+#again:hover {
+    color: rgb(0, 0, 0);
+    text-shadow: 3px 5px 5px rgb(0, 0, 0);
+    border: 3px solid rgb(255, 255, 255);
+    background-color: rgb(0, 255, 13);
+}
+
 .fontSize {
     font-size: 15px;
 }
 
 
-@media all and(max-width: 600px) {
+@media screen and(max-width: 600px) {
     h1 {
         font-size: 13px;
+        color: rgb(0, 0, 0);
+        text-shadow: 3px 5px 5px rgb(0, 0, 0);
     }
 
     div.questions{

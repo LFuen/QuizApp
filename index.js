@@ -73,7 +73,8 @@ function render(){
     let currentPic = currentQuestion.background;
     
     let templateHTML =`
-    <div class="questions boxed" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${currentPic})">
+    <div class="questions boxed" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${currentPic}) no-repeat;
+    background-size: 100%;">
     <h3> Question: ${store.questionNumber + 1} / ${store.questions.length} </h3>
     <h2 id="question">${currentQuestion.question}</h2>
     <form class="boxed">
